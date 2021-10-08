@@ -1,0 +1,52 @@
+.inventory-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#inventory {
+  display: flex;
+  height: 75%;
+  width: 35%;
+  border: 2px solid chartreuse;
+}
+
+#left-container {
+  width: 50%;
+  height: 100%;
+  border-right: 1px solid chartreuse;
+}
+
+#right-container {
+  width: 50%;
+  height: 100%;
+}
+
+#stats {
+  height: 30%;
+  width: 100%;
+  border-bottom: 1px solid chartreuse;
+}
+
+#items {
+  height: 70%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.stat-item {
+  margin-left: 10px;
+}
+
+#item-list {
+  margin-left: 10px;
+}
+
+#items::-webkit-scrollbar {
+  display: none;
+}
+#items::-webkit-scrollbar-corner {
+  display: none;
+}

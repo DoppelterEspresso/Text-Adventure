@@ -3,6 +3,7 @@ export const GameText = {
     text: {
       1: "Goodbye, friend",
     },
+    options: {},
   },
   1: {
     text: {
