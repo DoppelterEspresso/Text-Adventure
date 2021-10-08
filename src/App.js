@@ -4,6 +4,7 @@ import { Text } from "./Text";
 import { PlayerInput } from "./PlayerInput";
 import { GameText } from "./GameText";
 import { Options } from "./Options";
+import { Link } from "react-router-dom";
 
 const App = () => {
   const [count, setCount] = useState(1);
@@ -70,7 +71,9 @@ const App = () => {
         <PlayerInput />
       </div>
       <div className="buttons-container">
-        <button>Inventory</button>
+        <Link to="/inventory">
+          <button>Inventory</button>
+        </Link>
         <button>Map</button>
       </div>
     </div>

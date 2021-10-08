@@ -4,13 +4,16 @@
   font-family: "Roboto Mono", monospace;
 }
 
+body {
+  background-color: rgb(19, 18, 18);
+}
+
 .flex-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(19, 18, 18);
 }
 .game-container {
   display: flex;
