@@ -83,7 +83,17 @@ const App = () => {
   };
 
   if (redirect) {
-    return <Redirect to={redirect} />;
+    return (
+      <Redirect
+        to={{
+          pathname: redirect,
+          state: {
+            enemyInfo: GameText[page].fightInfo,
+            playerInfo: playerStats,
+          },
+        }}
+      />
+    );
   }
 
   return (

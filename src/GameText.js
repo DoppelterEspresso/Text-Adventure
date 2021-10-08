@@ -35,6 +35,8 @@ export const GameText = {
     fightInfo: {
       enemy: "Slime",
       hp: 25,
+      maxHp: 25,
+      defense: 5,
       attackPower: 3,
     },
     nextPage: {},

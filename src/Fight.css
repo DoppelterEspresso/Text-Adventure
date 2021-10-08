@@ -1,0 +1,51 @@
+.fight-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.combatants-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.combatant-name {
+  text-decoration: underline chartreuse;
+  text-align: center;
+  border-bottom: 1px solid chartreuse;
+  height: 10%;
+}
+
+.combatant-display {
+  height: 500px;
+  border: 1px solid chartreuse;
+}
+
+.combatant-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  border-bottom: 1px solid chartreuse;
+}
+
+#player-display {
+  width: 20%;
+}
+
+#player-actions {
+  height: 60%;
+  display: flex;
+  align-items: flex-end;
+}
+.player-action-button {
+  width: 50%;
+}
+
+#enemy-display {
+  width: 20%;
+}
