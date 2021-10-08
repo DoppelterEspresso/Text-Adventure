@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  color: #00fa00;
+  font-family: "Roboto Mono", monospace;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(19, 18, 18);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.game-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 50%;
+  height: 60%;
+  box-shadow: 0 0 3px 5px chartreuse;
 }
 
-.App-link {
-  color: #61dafb;
+#game-content {
+  width: 95%;
+  height: 85%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+li {
+  list-style: none;
+  max-width: 90%;
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul {
+  padding: 0;
+}
+
+.game-text {
+  font-size: 20px;
+  display: inline-block;
+  max-width: fit-content;
+  line-height: 30px;
+}
+
+.current-text:after {
+  content: "";
+  width: 10px;
+  height: 2px;
+  background: #00fa00;
+  opacity: 0;
+  display: inline-block;
+  margin-left: 5px;
+  animation: caret-blink 0.8s linear infinite alternate;
+}
+
+input {
+  align-self: normal;
+  background-color: black;
+  padding: 10px 10px 10px 0;
+  border: none;
+  width: 95%;
+}
+
+input:focus {
+  outline: none;
+}
+
+.input-container {
+  display: flex;
+  font-size: 20px;
+  width: 100%;
+  background-color: black;
+}
+
+#terminal-sign {
+  width: 5%;
+  text-align: center;
+  align-self: center;
+}
+
+@keyframes type {
+  0% {
+    width: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
