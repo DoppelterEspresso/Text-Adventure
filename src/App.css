@@ -6,6 +6,7 @@
 
 .flex-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -24,8 +25,12 @@
 #game-content {
   width: 95%;
   height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
+/* Game Text */
 li {
   list-style: none;
   max-width: 90%;
@@ -56,12 +61,14 @@ ul {
   animation: caret-blink 0.8s linear infinite alternate;
 }
 
+/* Player Input */
 input {
   align-self: normal;
   background-color: black;
   padding: 10px 10px 10px 0;
   border: none;
   width: 95%;
+  font-size: 20px;
 }
 
 input:focus {
@@ -70,7 +77,6 @@ input:focus {
 
 .input-container {
   display: flex;
-  font-size: 20px;
   width: 100%;
   background-color: black;
 }
@@ -79,8 +85,30 @@ input:focus {
   width: 5%;
   text-align: center;
   align-self: center;
+  font-size: 30px;
 }
 
+/* buttons */
+.buttons-container {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+button {
+  border: 1px solid #00fa00;
+  font-size: 25px;
+  width: 150px;
+  height: 50px;
+  background-color: rgb(19, 18, 18);
+}
+
+button:active {
+  box-shadow: 0 0 3px 5px chartreuse;
+}
+
+/* Animations */
 @keyframes type {
   0% {
     width: 0;
