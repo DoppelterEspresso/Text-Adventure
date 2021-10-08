@@ -4,12 +4,26 @@ import { Text } from "./Text";
 import { PlayerInput } from "./PlayerInput";
 import { GameText } from "./GameText";
 import { Options } from "./Options";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { render } from "react-dom";
 
 const App = () => {
+  const [redirect, setRedirect] = useState(null);
   const [count, setCount] = useState(1);
   const [page, setPage] = useState(1);
   const [showOptions, setShowOptions] = useState(false);
+  const [playerStats, setPlayerStats] = useState({
+    hp: 50,
+    maxHp: 50,
+    defense: 12,
+    weapon: "sword",
+    armor: "leather",
+    attackPower: 5,
+    items: {
+      1: "key",
+      2: "lighter",
+    },
+  });
 
   useEffect(() => {
     let newText = document.querySelector("ul").lastChild.lastChild;
@@ -51,6 +65,13 @@ const App = () => {
       if (
         Object.values(GameText[page].options).includes(
           inputField.value.toLowerCase()
+        ) &&
+        inputField.value === "fight"
+      ) {
+        setRedirect("/fight");
+      } else if (
+        Object.values(GameText[page].options).includes(
+          inputField.value.toLowerCase()
         )
       ) {
         setPage(GameText[page].nextPage[inputField.value.toLowerCase()]);
@@ -60,6 +81,10 @@ const App = () => {
       }
     }
   };
+
+  if (redirect) {
+    return <Redirect to={redirect} />;
+  }
 
   return (
     <div className="flex-container">
@@ -71,7 +96,12 @@ const App = () => {
         <PlayerInput />
       </div>
       <div className="buttons-container">
-        <Link to="/inventory">
+        <Link
+          to={{
+            pathname: "/inventory",
+            state: { playerStats },
+          }}
+        >
           <button>Inventory</button>
         </Link>
         <button>Map</button>
