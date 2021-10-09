@@ -44,7 +44,14 @@ export const Inventory = () => {
         <Link to="/">
           <button>Terminal</button>
         </Link>
-        <button>Map</button>
+        <Link
+          to={{
+            pathname: "/map",
+            state: { playerInfo },
+          }}
+        >
+          <button>Map</button>
+        </Link>
       </div>
     </div>
   );

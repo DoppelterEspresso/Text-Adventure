@@ -1,0 +1,38 @@
+#map-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#map {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  width: 600px;
+  height: 600px;
+  padding: 20px;
+  border: 1px solid chartreuse;
+}
+
+/* Location placement */
+#start {
+  grid-column: 4;
+  grid-row: 4;
+}
+
+#cave {
+  grid-column: 4;
+  grid-row: 5;
+}
+
+.location {
+  border: dashed 2px #00fa00;
+  font-size: 50px;
+  text-align: center;
+}
+
+.current {
+  border-color: rgb(0, 0, 199);
+}

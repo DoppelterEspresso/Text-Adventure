@@ -126,7 +126,14 @@ const App = () => {
         >
           <button>Inventory</button>
         </Link>
-        <button>Map</button>
+        <Link
+          to={{
+            pathname: "/map",
+            state: { playerStats },
+          }}
+        >
+          <button>Map</button>
+        </Link>
       </div>
     </div>
   );
