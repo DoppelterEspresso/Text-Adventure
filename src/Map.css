@@ -27,6 +27,11 @@
   grid-row: 5;
 }
 
+#road-up-1 {
+  grid-column: 4;
+  grid-row: 3;
+}
+
 .location {
   border: dashed 2px #00fa00;
   font-size: 50px;

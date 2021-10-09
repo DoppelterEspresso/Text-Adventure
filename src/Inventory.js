@@ -3,8 +3,7 @@ import "./Inventory.css";
 
 export const Inventory = () => {
   const location = useLocation();
-  const playerInfo = location.state.playerStats;
-  console.log(playerInfo);
+  const playerInfo = location.state.playerInfo;
 
   let itemsInInventory = [];
 

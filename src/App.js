@@ -11,7 +11,8 @@ const App = () => {
   const [count, setCount] = useState(1);
   const [page, setPage] = useState(0);
   const [showOptions, setShowOptions] = useState(false);
-  const [playerStats, setPlayerStats] = useState({
+  const [coords, setCoords] = useState([4, 4]);
+  const [playerInfo, setPlayerInfo] = useState({
     hp: 50,
     maxHp: 50,
     defense: 12,
@@ -25,14 +26,16 @@ const App = () => {
   });
 
   useEffect(() => {
-    setPage(JSON.parse(window.localStorage.getItem("page")));
-    setPlayerStats(JSON.parse(window.localStorage.getItem("playerStats")));
+    if (window.localStorage.getItem("playerInfo")) {
+      setPage(JSON.parse(window.localStorage.getItem("page")));
+      setPlayerInfo(JSON.parse(window.localStorage.getItem("playerInfo")));
+    }
   }, []);
 
   useEffect(() => {
     window.localStorage.setItem("page", page);
-    window.localStorage.setItem("playerStats", JSON.stringify(playerStats));
-  }, [page, playerStats]);
+    window.localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
+  }, [page, playerInfo]);
 
   useEffect(() => {
     if (page !== 0) {
@@ -101,7 +104,7 @@ const App = () => {
           pathname: redirect,
           state: {
             enemyInfo: GameText[page].fightInfo,
-            playerInfo: playerStats,
+            playerInfo: playerInfo,
           },
         }}
       />
@@ -121,7 +124,7 @@ const App = () => {
         <Link
           to={{
             pathname: "/inventory",
-            state: { playerStats },
+            state: { playerInfo },
           }}
         >
           <button>Inventory</button>
@@ -129,7 +132,7 @@ const App = () => {
         <Link
           to={{
             pathname: "/map",
-            state: { playerStats },
+            state: { playerInfo },
           }}
         >
           <button>Map</button>
