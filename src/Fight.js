@@ -1,10 +1,11 @@
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Fight.css";
 
 export const Fight = () => {
   let location = useLocation();
-  let enemyInfo = location.state.enemyInfo;
-  let playerInfo = location.state.playerInfo;
+  const [enemyInfo, setEnemyInfo] = useState(location.state.enemyInfo);
+  const [playerInfo, setPlayerInfo] = useState(location.state.playerInfo);
 
   console.log(playerInfo);
   return (
@@ -38,6 +39,9 @@ export const Fight = () => {
           </div>
         </div>
       </div>
+      <Link to="/">
+        <button>Back (DEBUG)</button>
+      </Link>
     </div>
   );
 };

@@ -1,10 +1,14 @@
 export const GameText = {
   0: {
     text: {
-      1: "Goodbye, friend",
+      1: "TEXT ADVENTURE",
     },
-    options: {},
-    nextPage: {},
+    options: {
+      1: "start",
+    },
+    nextPage: {
+      start: 1,
+    },
   },
   1: {
     text: {
@@ -31,6 +35,7 @@ export const GameText = {
     options: {
       1: "fight",
       2: "retreat",
+      3: "continue",
     },
     fightInfo: {
       enemy: "Slime",
@@ -39,6 +44,20 @@ export const GameText = {
       defense: 5,
       attackPower: 3,
     },
-    nextPage: {},
+    nextPage: {
+      retreat: 1,
+      continue: 3,
+    },
+  },
+  3: {
+    text: {
+      1: "DEBUG",
+    },
+    options: {
+      1: "back",
+    },
+    nextPage: {
+      back: 1,
+    },
   },
 };

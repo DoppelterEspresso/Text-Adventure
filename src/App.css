@@ -22,6 +22,7 @@ body {
   align-items: center;
   width: 50%;
   height: 60%;
+  background-color: black;
   box-shadow: 0 0 3px 5px chartreuse;
 }
 
@@ -67,11 +68,11 @@ ul {
 /* Player Input */
 input {
   align-self: normal;
-  background-color: black;
   padding: 10px 10px 10px 0;
   border: none;
   width: 95%;
   font-size: 20px;
+  background-color: rgb(19, 18, 18);
 }
 
 input:focus {
@@ -81,7 +82,7 @@ input:focus {
 .input-container {
   display: flex;
   width: 100%;
-  background-color: black;
+  background-color: rgb(19, 18, 18);
 }
 
 #terminal-sign {

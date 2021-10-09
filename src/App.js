@@ -5,12 +5,11 @@ import { PlayerInput } from "./PlayerInput";
 import { GameText } from "./GameText";
 import { Options } from "./Options";
 import { Link, Redirect } from "react-router-dom";
-import { render } from "react-dom";
 
 const App = () => {
   const [redirect, setRedirect] = useState(null);
   const [count, setCount] = useState(1);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [showOptions, setShowOptions] = useState(false);
   const [playerStats, setPlayerStats] = useState({
     hp: 50,
@@ -26,23 +25,37 @@ const App = () => {
   });
 
   useEffect(() => {
-    let newText = document.querySelector("ul").lastChild.lastChild;
-    let newTextContent = newText.textContent;
-    newText.textContent = "";
-    let textCount = 0;
-    let newTextLength = newTextContent.length;
-    async function setText() {
-      setTimeout(() => {
-        newText.textContent += newTextContent.charAt(textCount);
-        textCount++;
-        if (textCount <= newTextLength) {
-          setText();
-        } else {
-          newText.className = "game-text";
-        }
-      }, 50);
+    setPage(JSON.parse(window.localStorage.getItem("page")));
+    setPlayerStats(JSON.parse(window.localStorage.getItem("playerStats")));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("page", page);
+    window.localStorage.setItem("playerStats", JSON.stringify(playerStats));
+  }, [page, playerStats]);
+
+  useEffect(() => {
+    if (page !== 0) {
+      let newText = document.querySelector("ul").lastChild.lastChild;
+      let newTextContent = GameText[page].text[count];
+      console.log(newTextContent);
+      newText.textContent = "";
+      let textCount = 0;
+      let newTextLength = newTextContent.length;
+      async function setText() {
+        setTimeout(() => {
+          newText.textContent += newTextContent.charAt(textCount);
+          textCount++;
+          if (textCount <= newTextLength) {
+            setText();
+          } else {
+            newText.className = "game-text";
+            console.log(GameText[page].text[count]);
+          }
+        }, 50);
+      }
+      setText();
     }
-    setText();
   }, [count]);
 
   document.body.onkeyup = (e) => {
@@ -52,16 +65,15 @@ const App = () => {
       Object.keys(GameText[page].text).length > count
     ) {
       setCount(count + 1);
-      console.log(count);
     } else if (
       e.key === " " &&
       document.querySelector("input") !== document.activeElement
     ) {
       setShowOptions(true);
     } else if (e.key === "Enter") {
-      console.log(Object.values(GameText[page].options));
+      //console.log(Object.values(GameText[page].options));
       let inputField = document.getElementById("player-input");
-      console.log(inputField.value);
+      //console.log(inputField.value);
       if (
         Object.values(GameText[page].options).includes(
           inputField.value.toLowerCase()
