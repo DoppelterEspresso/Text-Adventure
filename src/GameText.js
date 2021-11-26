@@ -55,9 +55,11 @@ export const GameText = {
     },
     options: {
       1: "back",
+      2: "exit^",
     },
     nextPage: {
       back: 1,
+      exit: 0,
     },
   },
 };

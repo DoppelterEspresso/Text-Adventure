@@ -11,7 +11,6 @@ const App = () => {
   const [count, setCount] = useState(1);
   const [page, setPage] = useState(0);
   const [showOptions, setShowOptions] = useState(false);
-  const [coords, setCoords] = useState([4, 4]);
   const [playerInfo, setPlayerInfo] = useState({
     hp: 50,
     maxHp: 50,

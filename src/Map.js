@@ -26,7 +26,9 @@ export const Map = () => {
   useEffect(() => {
     let currentLocation = document.getElementsByClassName("current")[0];
     currentLocation.classList.remove("current");
-    currentLocation = document.getElementsByClassName(`grid-${4}-${row}`)[0];
+    currentLocation = document.getElementsByClassName(
+      `grid-${column}-${row}`
+    )[0];
     currentLocation.classList.add("current");
   }, [row, column]);
 
@@ -41,6 +43,7 @@ export const Map = () => {
           ◻
         </div>
         <div id="road-up-1" className="location grid-4-5"></div>
+        <div id="road-right-1" className="location grid-5-4"></div>
       </div>
       <div className="buttons-container">
         <Link to="/">
